@@ -47,15 +47,10 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -77,43 +72,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAdmin.Designer.vb">
-      <DependentUpon>FormAdmin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormAdmin.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.vb">
-      <DependentUpon>FormLogin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormLogin.vb">
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLupaPass.Designer.vb">
-      <DependentUpon>FormLupaPass.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormLupaPass.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPinAdmin.Designer.vb">
-      <DependentUpon>FormPinAdmin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormPinAdmin.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRegister.Designer.vb">
-      <DependentUpon>FormRegister.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormRegister.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUser.Designer.vb">
-      <DependentUpon>FormUser.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormUser.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleArisan.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -129,40 +94,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ShowPict.Designer.vb">
-      <DependentUpon>ShowPict.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ShowPict.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormAdmin.resx">
-      <DependentUpon>FormAdmin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLupaPass.resx">
-      <DependentUpon>FormLupaPass.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPinAdmin.resx">
-      <DependentUpon>FormPinAdmin.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRegister.resx">
-      <DependentUpon>FormRegister.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUser.resx">
-      <DependentUpon>FormUser.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ShowPict.resx">
-      <DependentUpon>ShowPict.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -176,30 +114,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4616914-flat-wallpaper-minimal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\blank_user.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\1.png" />
-    <None Include="Resources\construction_project_plan_building_architect_design_develop-61_icon-icons.com_60253.png" />
-    <None Include="Resources\asd.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\date-clipart-calendar-time-18.png" />
-    <Content Include="Resources\icon_user_1.png" />
-    <None Include="Resources\icon_user_11.png" />
-    <Content Include="Resources\ipin.png" />
-    <None Include="Resources\table-icon-21.png" />
-    <None Include="Resources\unnamed.png" />
-    <None Include="Resources\Untitled-1.png" />
-    <None Include="Resources\Untitled-11.png" />
-    <None Include="Resources\Untitled-12.png" />
-    <None Include="Resources\Untitled-13.png" />
-    <None Include="Resources\save.png" />
-    <Content Include="Resources\wallpapersden.com_star-lord-colorful_2560x1440.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
