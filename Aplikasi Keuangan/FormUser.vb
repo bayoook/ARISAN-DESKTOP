@@ -344,7 +344,7 @@ Public Class FormUser
     'button _ click
     Private Sub Button___Click(sender As Object, e As EventArgs) Handles Button__.Click
         Me.WindowState = FormWindowState.Minimized
-    End Sub\
+    End Sub
     'button maximize click
     Private Sub Button_Max_Click(sender As Object, e As EventArgs) Handles Button_Max.Click
         If Me.WindowState = FormWindowState.Maximized Then
