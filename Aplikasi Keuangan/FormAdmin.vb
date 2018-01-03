@@ -1,4 +1,4 @@
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices
 Public Class FormAdmin
 #Region "Variabel"
@@ -41,7 +41,6 @@ Public Class FormAdmin
         Call Koneksi()
         ComboBox_Bulan.Items.Clear()
         ComboBox_Nama.Items.Clear()
-        ComboBox_NamaTagihan.Items.Clear()
         'Mengambil data dari database
         DA = New SqlDataAdapter("select Username as Username,
                     Januari as Januari, Februari as Februari, 
@@ -71,14 +70,13 @@ Public Class FormAdmin
         For i = 0 To kolom - 1
             'Menambahkan combobox2 dengan data pada tabel ke 0,i
             ComboBox_Nama.Items.Add(DataGridView_Admin.Item(0, i).Value)
-            ComboBox_NamaTagihan.Items.Add(DataGridView_Admin.Item(0, i).Value)
         Next
         ComboBox_Nama.SelectedItem = DataGridView_Admin.Item(0, 0).Value
         TextBox_JumlahUang.Focus()
     End Sub
     Sub TampilList()
+        Call Koneksi()
         If Not ComboBox_NamaTagihan.Text = "" Then
-            Call Koneksi()
             CMD = New SqlCommand("select * from TBL_ACC where username='" & ComboBox_NamaTagihan.Text & "'", CONN)
             RD = CMD.ExecuteReader
             RD.Read()
@@ -236,6 +234,14 @@ Public Class FormAdmin
         ComboBox_BulanTagihan.Items.Add("November")
         ComboBox_BulanTagihan.Items.Add("Desember")
     End Sub
+    Sub tampilnamatagihan()
+        ComboBox_NamaTagihan.Items.Clear()
+        Dim kolom As Integer = DS.Tables("TBL_ACC").Rows.Count
+        Dim i As Integer
+        For i = 0 To kolom - 1
+            ComboBox_NamaTagihan.Items.Add(DataGridView_Admin.Item(0, i).Value)
+        Next
+    End Sub
     Sub TampilBulanNew()
         Call Koneksi()
         If Not ComboBox_BulanTagihan.Text = "" Then
@@ -355,11 +361,8 @@ Public Class FormAdmin
             CMD.ExecuteNonQuery()
             Call TampilGrid()
             Call TampilBulan()
-            If Label_Nama.Visible = True Then
-                Call TampilList()
-            Else
-                Call TampilBulanNew()
-            End If
+            Call TampilList()
+            Call TampilBulanNew()
         End If
     End Sub
     'button delete di menu tagihan click
@@ -539,14 +542,17 @@ menang:
             ComboBox_Nama.SelectedIndex = ListBox_Tagihan.SelectedIndex
             TextBox_NamaNew.Text = ComboBox_Nama.Text
         End If
-        Call Koneksi()
-        CMD = New SqlCommand("select * from TBL_ACC where username='" & TextBox_NamaNew.Text & "'", CONN)
-        RD = CMD.ExecuteReader
-        RD.Read()
-        Dim jumlah As Integer = 1000000 - RD.Item(TextBox_BulanNew.Text)
-        TextBox_JumlahUangNew.Text = jumlah
-        RD.Close()
-
+        If TextBox_NamaNew.Text = "" Or TextBox_BulanNew.Text = "" Then
+            MsgBox("Silahkan Pilih Data")
+        Else
+            Call Koneksi()
+            CMD = New SqlCommand("select * from TBL_ACC where username='" & TextBox_NamaNew.Text & "'", CONN)
+            RD = CMD.ExecuteReader
+            RD.Read()
+            Dim jumlah As Integer = 1000000 - RD.Item(TextBox_BulanNew.Text)
+            TextBox_JumlahUangNew.Text = jumlah
+            RD.Close()
+        End If
     End Sub
 #End Region
 #Region "Menu"
@@ -567,11 +573,10 @@ menang:
         Panel_Perorangan.Visible = True
         Label_Bulan.Visible = False
         Label_Nama.Visible = True
+        tampilnamatagihan()
         ComboBox_BulanTagihan.Visible = False
         ComboBox_NamaTagihan.Visible = True
         ListBox_Tagihan.Items.Clear()
-        ComboBox_NamaTagihan.SelectedItem = ""
-        ComboBox_BulanTagihan.SelectedItem = ""
     End Sub
     'menu perbulan click
     Private Sub Button_Perbulan_Click(sender As Object, e As EventArgs) Handles Button_Perbulan.Click
@@ -614,11 +619,6 @@ menang:
         Panel_TagihanArisan.Visible = False
         Panel_Undi.Visible = False
     End Sub
-    Private Sub FormAdmin_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-        TextBox_JumlahUang.Focus()
-        Call TampilGrid()
-        Call TampilBulan()
-    End Sub
 
     'logout label click
     Private Sub Label_Logout_Click(sender As Object, e As EventArgs) Handles Label_Logout.Click
@@ -634,7 +634,7 @@ menang:
     Private Sub TextBox_JumlahUang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_JumlahUang.KeyPress
         If e.KeyChar = Chr(13) Then Button_Input.PerformClick()
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Or Asc(e.KeyChar) = 45 Then
+            If Asc(e.KeyChar) < 42 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -642,7 +642,7 @@ menang:
     Private Sub TextBox_JumlahUangNew_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_JumlahUangNew.KeyPress
         If e.KeyChar = Chr(13) Then Button_InputTagihan.PerformClick()
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Or Asc(e.KeyChar) = 45 Then
+            If Asc(e.KeyChar) < 42 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If

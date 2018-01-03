@@ -857,17 +857,17 @@ Partial Class FormAdmin
         '
         'TextBox_BulanNew
         '
-        Me.TextBox_BulanNew.Enabled = False
         Me.TextBox_BulanNew.Location = New System.Drawing.Point(6, 168)
         Me.TextBox_BulanNew.Name = "TextBox_BulanNew"
+        Me.TextBox_BulanNew.ReadOnly = True
         Me.TextBox_BulanNew.Size = New System.Drawing.Size(153, 20)
         Me.TextBox_BulanNew.TabIndex = 77
         '
         'TextBox_NamaNew
         '
-        Me.TextBox_NamaNew.Enabled = False
         Me.TextBox_NamaNew.Location = New System.Drawing.Point(6, 126)
         Me.TextBox_NamaNew.Name = "TextBox_NamaNew"
+        Me.TextBox_NamaNew.ReadOnly = True
         Me.TextBox_NamaNew.Size = New System.Drawing.Size(153, 20)
         Me.TextBox_NamaNew.TabIndex = 76
         '
