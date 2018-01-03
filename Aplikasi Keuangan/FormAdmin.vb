@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices
 Public Class FormAdmin
 #Region "Variabel"
@@ -634,7 +634,7 @@ menang:
     Private Sub TextBox_JumlahUang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_JumlahUang.KeyPress
         If e.KeyChar = Chr(13) Then Button_Input.PerformClick()
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Or Asc(e.KeyChar) = 45 Then
                 e.Handled = True
             End If
         End If
@@ -642,11 +642,8 @@ menang:
     Private Sub TextBox_JumlahUangNew_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_JumlahUangNew.KeyPress
         If e.KeyChar = Chr(13) Then Button_InputTagihan.PerformClick()
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Or Asc(e.KeyChar) = 45 Then
                 e.Handled = True
-            ElseIf Asc(e.KeyChar) = 32 Then
-                MsgBox("Id tidak boleh memakai spasi")
-                e.KeyChar = Chr(0)
             End If
         End If
     End Sub
