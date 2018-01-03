@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices
 Public Class FormUser
 #Region "Variabel"
@@ -308,7 +308,7 @@ Public Class FormUser
     Private Sub TextBox_JumlahUang_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_JumlahUang.KeyPress
         If e.KeyChar = Chr(13) Then Button_Input.PerformClick()
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Or Asc(e.KeyChar) = 45 Then
                 e.Handled = True
             End If
         End If
