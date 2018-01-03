@@ -13,7 +13,7 @@ Sebagai user, kita dapat melihat uang tagihan arisan kita. Dan kita juga dapat m
 * **Gietha Novita Putri** - *Pelajar* - 1103160031
 * **Hanizar Rachman** - *Pelajar* - 1103164040
 
-# Acknowledgments
+## Acknowledgments
 * Allah SWT
 * Kedua Orang Tua
 * Dosen Pembimbing Laboratorium SEA
