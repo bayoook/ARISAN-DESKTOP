@@ -9,7 +9,7 @@ Sebagai user, kita dapat melihat uang tagihan arisan kita. Dan kita juga dapat m
 * [Visual Studio 2017](https://www.visualstudio.com/) - IDE
 
 ## Author
-* **Muhammad Rizqi Mubarak** - *Pelajar* - 1103161076 - [bayoook](https://github.com/bayoook)
+* **Muhammad Rizqi Mubarak** - *Pelajar* - 1103161076 - [min4tozaki](https://github.com/min4tozaki)
 * **Gietha Novita Putri** - *Pelajar* - 1103160031
 * **Hanizar Rachman** - *Pelajar* - 1103164040
 
